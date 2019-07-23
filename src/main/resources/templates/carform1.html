@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form action="#" th:action="@{/carprocess}" method="post">
+<div class="container">
+    <div class="jumbotron">
+        <h1 style="border: darkturquoise;">Special Car Dealer</h1>
+        <p><button type="submit" formaction="@{/addcar}" style="background-color: aliceblue; ">Add New car</button>
+        <button type="submit" value="submit" style="background-color: aliceblue; animation: running">Car On Sale</button>
+        </p>
+    </div>
+    <p></p>
+    <p></p>
+</div></form>
+</body>
+</html>

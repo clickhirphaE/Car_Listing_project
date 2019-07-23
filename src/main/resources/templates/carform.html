@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8" >
+    <title>Title</title>
+
+    <title>car form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+       body{
+           box-sizing: border-box;
+           border-radius: 10px;
+       }
+        input{
+            margin: 12px;
+            border-radius: 4px;
+            border-style: solid;
+        }
+        select{
+            margin: 12px;
+        }
+    </style>
+</head>
+<body>
+<form action="#" th:action="@{/processcar}" >
+    <div class="container" style=" border-top-color: darkturquoise">
+        <div class="jumbotron">
+<h2 style=" text-shadow: darkturquoise"> Type in Your new car Information below:</h2>
+<strong>
+
+    Make:<input type="text" field="${car.manufacturer}"/><br/>
+    Model:<input type="text" field="${car.model}"/><br/>
+    Category:<select name="category" id="category" class="custom-select" th:field="*{catgeory}"/>
+                     <option value="">select Category</option>
+    <option th:each="categor :$ {category}"
+            th:value="$ {categor.category}"/><br/>
+    </select></br>
+          Year:<input type="text" field="${car.year}"/><br/>
+    Price:<input type="number" value="$100.00" field="${car.year}"/><br/>
+    <input type="submit" value="Submit">
+</strong></div>
+    </div>
+
+</form>
+</body>
+</html>
