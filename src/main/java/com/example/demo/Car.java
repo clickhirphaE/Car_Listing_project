@@ -1,7 +1,13 @@
 package com.example.demo;
 
 
+
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.lang.annotation.Native;
+import java.util.Set;
 
 @Entity
 public class Car {
@@ -9,21 +15,29 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @NotNull
+    @Size(min=1)
     private String manufacturer;
+
+    @NotNull
+    @Size(min=1)
     private String model;
-    private long year;
-    private double price;
 
+    @NotNull
+    @Min(1900)
+    private int year;
 
+    private double msrp;
+    private String image;
 
-    private String category;
+    private long category_id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Dealer dealer;
+    public long getCategory_id() {
+        return category_id;
+    }
 
-
-    public Car() {
-        dealer=new Dealer();
+    public void setCategory_id(long category_id) {
+        this.category_id = category_id;
     }
 
     public long getId() {
@@ -50,34 +64,29 @@ public class Car {
         this.model = model;
     }
 
-    public long getYear() {
+    public int getYear() {
         return year;
     }
 
-    public void setYear(long year) {
+    public void setYear(int year) {
         this.year = year;
     }
 
-    public double getPrice() {
-        return price;
+    public double getMsrp() {
+        return msrp;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setMsrp(double msrp) {
+        this.msrp = msrp;
     }
 
-    public Dealer getDealer() {
-        return dealer;
+
+    public String getImage() {
+        return image;
     }
 
-    public void setDealer(Dealer dealer) {
-        this.dealer = dealer;
-    }
-    public String getCategory() {
-        return category;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
 }

@@ -32,49 +32,35 @@
 </head>
 <body>
 <div th:replace="base :: navlinks"></div>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="container">
     <div class="row">
         <div class="col-2">&nbsp;</div>
         <div class="col-8">
-            <br/>
-            <br/>
-            <h2>Add a car</h2>
-            <form method="post" action="/addcar" th:object="${car}" enctype="multipart/form-data">
-                <div class="form-group"><input type="hidden" th:field="*{id}"></div>
-
-                <div class="form-group"><strong>Manufacturer:</strong>
-                    <input type="text" placeholder="Enter a manufacturer" th:field="*{manufacturer}">
-                    <span th:if="${#fields.hasErrors('manufacturer')}" th:errors="*{manufacturer}"></span>
-                </div>
-                <div class="form-group"><strong>Model: </strong>
-                    <input type="text" placeholder="Enter a model" th:field="*{model}">
-                    <span th:if="${#fields.hasErrors('model')}" th:errors="*{model}"></span>
-                </div>
-
-                <div class="form-group"><strong>Year: </strong>
-                    <input type="number" th:field="*{year}">
-                    <span th:if="${#fields.hasErrors('year')}" th:errors="*{year}"></span>
-                </div>
-                <div class="form-group"><strong>MSRP: </strong><input type="number" step="0.1" th:field="*{msrp}"></div>
-
-                <label for="categoryInput"><strong>Category Type</strong></label>
-                <select class="form-control" id="categoryInput" th:field="*{category_id}">
-
-                    <option th:each="category : ${categories}"
-                            th:value="${category.id}"
-                            th:utext="${category.name}"/>
-                </select>
-                <br/>
-                <input type="file" name="file" />
+            <h2> Add a Category</h2>
+            <form method="post" action="/addcategory" th:object="${category}">
+                <strong>Category Type: </strong><input type="text" th:field="*{name}">
                 <button type="submit" class="btn btn-success">Click</button>
             </form>
-            <br>
-            <br>
-            <br>
             <div class="col-2">&nbsp;</div>
         </div>
     </div>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div th:replace="base :: footer"></div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
